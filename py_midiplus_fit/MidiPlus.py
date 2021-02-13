@@ -102,6 +102,11 @@ class MidiPlus:
                         fader.fire_callback("fader_touch")
                     else:
                         fader.fire_callback("fader_release")
+                elif button_id == fader.knob_id:
+                    if pressed:
+                        fader.fire_callback("knob_press")
+                    else:
+                        fader.fire_callback("knob_release")
         pass
 
     def __on_fader_move(self, command, data):

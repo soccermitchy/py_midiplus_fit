@@ -49,6 +49,10 @@ def main():
                                 self.set_led_mute(True))
         fader.register_callback("mute_release", lambda self:
                                 self.set_led_mute(False))
+        fader.register_callback("knob_press", lambda self:
+                                self.set_row(4, "KPress"))
+        fader.register_callback("knob_release", lambda self:
+                                self.set_row(4, ""))
     mp.register_callback("layer_press", lambda self, layer:
                          self.set_led_layer(layer, True))
     mp.register_callback("layer_release", lambda self, layer:

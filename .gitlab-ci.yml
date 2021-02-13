@@ -1,0 +1,27 @@
+stages:
+  - build
+  - publish
+
+build:
+  stage: build
+  image: python:3.7
+  variables:
+    LC_ALL: C.UTF-8
+    LANG: C.UTF-8
+  script:
+    - pip install build
+    - python -m build
+  artifacts:
+    paths:
+      - dist/*
+
+publish:
+  stage: publish
+  only:
+    - tags
+  variables:
+    LC_ALL: C.UTF-8
+    LANG: C.UTF-8
+  script:
+    - pip install twine
+    - python -m  twine upload --repository pypi dist/*

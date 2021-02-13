@@ -7,7 +7,6 @@ class Fader:
     mute_btn_id: int = None
     fader_touch_id: int = None
     fader_id: int = None
-    callbacks = {}
 
     def __init__(self, controller, channel: int):
         self.controller = controller
@@ -19,6 +18,7 @@ class Fader:
         self.mute_btn_id = self.select_btn_id + 0x30
         self.fader_touch_id = self.select_btn_id + 0x60
         self.fader_id = self.select_btn_id + 0xE0
+        self.callbacks = {}
         if channel == 17:  # Whee, special cases!
             self.select_btn_id = 0x70
             self.knob_id = 0x71

@@ -39,6 +39,9 @@ class MidiPlus:
     def __gen_display_header(_):
         return [0xf0, 0x00, 0x00, 0x74, 0x3c, 0x1a, 0x01]
 
+    def __gen_rgb_header(_):
+        return [0xf0, 0x00, 0x00, 0x74, 0x3c, 0x1a, 0x03, 0x01, 0x40]
+
     def raw_write(self, message):
         # print("[" + (" ".join("0x%02x" % b for b in message) + "]"))
         self.midi_out.send_message(message)
@@ -245,3 +248,5 @@ class MidiPlus:
         for b in val.to_bytes(2, 'little'):
             message.append(b)
         self.raw_write(message)
+
+    # def set_color_table(self, color_table)

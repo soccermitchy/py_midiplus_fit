@@ -17,6 +17,7 @@ build:
 
 publish:
   stage: publish
+  image: python:3.7
   only:
     - tags
   variables:

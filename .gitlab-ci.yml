@@ -25,4 +25,4 @@ publish:
     LANG: C.UTF-8
   script:
     - pip install twine
-    - python -m  twine upload --repository pypi dist/*
+    - python -m  twine upload --repository pypi dist/* --username $TWINE_USERNAME --password $TWINE_PASSWORD
